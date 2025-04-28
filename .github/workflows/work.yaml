@@ -32,6 +32,10 @@ jobs:
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
         run: npm install
+      - name: Build the app
+        run: npm run build
+      - name: Preview the app
+        run: echo "Previewing your app at port 3000 ... ..."
       - name: Run the tests and generate coverage report
         run: echo "Running tests and generating reports ... ..."
 
