@@ -57,7 +57,7 @@ jobs:
       matrix:
         node-version: [23.x]
         # node-version: [18.x, 20.x, 22.x, 23.x]
-    needs: containerize
+    needs: build
     steps:
       - name: Deploy the app
         run: echo "Deploying your app tow AWS or GCP or Azure... ..."
