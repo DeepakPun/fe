@@ -8,6 +8,18 @@ env:
   FLAG: false
 
 jobs:
+  print_variable:
+    name: Print Variable
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Variable
+        run: echo ${{env.FLAG}}
+  conditional_print:
+    if: ${{ github.env.FLAG }} == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print truthy message
+        run: echo "Something truthy"
   print_message:
     runs-on: ubuntu-latest
     steps:
@@ -15,12 +27,5 @@ jobs:
         run: echo "Running actions triggered by ${{github.event_name}}"
       - name: Print flag name
         run: echo "Variable flag is ${{env.FLAG}}"
-      - name: Check conditionals
-        run: |
-          if [ ${{ env.FLAG }} ]; then
-            echo "Environment variable is truthy"
-          elif [ !${{ env.FLAG }} ]; then
-            echo "Environment variable is falsy"
-          else
-            echo "Environment variable is possibly not defined"
-          fi
+      - name: Run if FLAG is truthy
+        run: echo "I will run if flag is truthy"
