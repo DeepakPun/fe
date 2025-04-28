@@ -44,6 +44,13 @@ jobs:
       - name: Build the app
         run: echo "Building your app ... ..."
 
+  containerize:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Build docker container
+        run: echo "Building and pushing docker container"
+
   deploy:
     runs-on: ubuntu-latest
     strategy:
