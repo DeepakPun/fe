@@ -72,6 +72,16 @@ jobs:
         node-version: [23.x]
     needs: build
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm install
+      - name: Build the app
+        run: npm run build
       - name: Upload artifacts
         # uses: actions/upload-artifact@v3
         uses: actions/upload-artifact@v4
