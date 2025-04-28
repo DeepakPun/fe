@@ -19,7 +19,7 @@ jobs:
         run: |
           if [ ${{ env.FLAG }} ]; then
             echo "Environment variable is truthy"
-          elif [ ${{ env.FLAG }} == false ]; then
+          elif [ !${{ env.FLAG }} ]; then
             echo "Environment variable is falsy"
           else
             echo "Environment variable is possibly not defined"
