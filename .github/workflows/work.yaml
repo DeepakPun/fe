@@ -43,7 +43,7 @@ jobs:
         # node-version: [18.x, 20.x, 22.x, 23.x]
     needs: test
     steps:
-      - name: Print message
+      - name: Print build message
         run: echo "Building your app ... ..."
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -69,6 +69,8 @@ jobs:
     steps:
       - name: Build docker container
         run: echo "Building and pushing docker container"
+      - name: Output filename
+        run: echo "${{ needs.build.outputs.script-file }}"
 
   upload_artifact:
     runs-on: macos-latest
