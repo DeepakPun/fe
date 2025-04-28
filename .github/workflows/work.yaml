@@ -7,6 +7,11 @@ on:
   # branches: [ main ]
 
 jobs:
+  print_message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running actions triggered by ${{github.event_name}}
+        run: Running actions triggered by ${{github.event_name}}
   test:
     runs-on: ubuntu-latest
     strategy:
