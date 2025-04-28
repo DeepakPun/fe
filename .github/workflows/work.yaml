@@ -41,8 +41,10 @@ jobs:
         # node-version: [18.x, 20.x, 22.x, 23.x]
     needs: test
     steps:
-      - name: Build the app
+      - name: Print message
         run: echo "Building your app ... ..."
+      - name: Build the app
+        run: npm run build
 
   containerize:
     runs-on: ubuntu-latest
