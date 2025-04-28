@@ -5,7 +5,7 @@ on:
     branches: [master]
 
 env:
-  FLAG: true
+  FLAG: false
 
 jobs:
   print_message:
