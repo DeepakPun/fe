@@ -57,21 +57,39 @@ jobs:
       matrix:
         node-version: [23.x]
         # node-version: [18.x, 20.x, 22.x, 23.x]
-    needs: build
+    needs: containerize
     steps:
       - name: Deploy the app
-        run: echo "Deploying your app ... ..."
-
-        #  |
-        #   git config --global user.name $user_name
-        #   git config --global user.email $user_email
-        #   git remote set-url origin https://${github_token}@github.com/${repository}
-        #   npm run deploy
-        # env:
-        #   user_name: 'github-actions[bot]'
-        #   user_email: 'github-actions[bot]@users.noreply.github.com'
-        #   github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
-        #   repository: ${{ github.repository }}
+        run: echo "Deploying your app tow AWS or GCP or Azure... ..."
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#  |
+#   git config --global user.name $user_name
+#   git config --global user.email $user_email
+#   git remote set-url origin https://${github_token}@github.com/${repository}
+#   npm run deploy
+# env:
+#   user_name: 'github-actions[bot]'
+#   user_email: 'github-actions[bot]@users.noreply.github.com'
+#   github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+#   repository: ${{ github.repository }}
 # name: GitHub Actions CI/CD Example
 # run-name: Testing out GitHub Actions 🚀
 # on: [push]
