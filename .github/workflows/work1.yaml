@@ -20,12 +20,12 @@ jobs:
     steps:
       - name: Print truthy message
         run: echo "Something truthy"
-  print_message:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Running actions triggered by ${{github.event_name}}
-        run: echo "Running actions triggered by ${{github.event_name}}"
-      - name: Print flag name
-        run: echo "Variable flag is ${{env.FLAG}}"
-      - name: Run if FLAG is truthy
-        run: echo "I will run if flag is truthy"
+  # print_message:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Running actions triggered by ${{github.event_name}}
+  #       run: echo "Running actions triggered by ${{github.event_name}}"
+  #     - name: Print flag name
+  #       run: echo "Variable flag is ${{env.FLAG}}"
+  #     - name: Run if FLAG is truthy
+  #       run: echo "I will run if flag is truthy"
