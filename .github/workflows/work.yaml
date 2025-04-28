@@ -35,6 +35,8 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    outputs:
+      script-file: ${{steps.publish.outputs.script-file}}
     strategy:
       matrix:
         node-version: [23.x]
@@ -53,6 +55,9 @@ jobs:
         run: npm install
       - name: Build the app
         run: npm run build
+      - name: Publish JS filename
+        id: publish
+        run: find dist/assets/*.js -type f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT ';'
 
   containerize:
     runs-on: ubuntu-latest
