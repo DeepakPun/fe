@@ -18,19 +18,15 @@ jobs:
       matrix:
         node-version: [23.x]
         # node-version: [18.x, 20.x, 22.x, 23.x]
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-
       - name: Install dependencies
         run: npm install
-
       - name: Run the tests and generate coverage report
         run: echo "Running tests and generating reports ... ..."
 
@@ -58,6 +54,21 @@ jobs:
     steps:
       - name: Build docker container
         run: echo "Building and pushing docker container"
+
+  upload_artifact:
+    runs-on: macOS
+    strategy:
+      matrix:
+        node-version: [23.x]
+    needs: build
+    steps:
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-files
+          path: |
+            dist
+            package.json
 
   deploy:
     runs-on: ubuntu-latest
