@@ -15,11 +15,11 @@ jobs:
       - name: Print Variable
         run: echo ${{env.FLAG}}
   conditional_print:
-    if: ${{ github.env.FLAG }} == true
+    name: Check conditional
     runs-on: ubuntu-latest
     steps:
-      - name: Print truthy message
-        run: echo "Something truthy"
+      - name: Print sth
+        run: echo "sth"
   # print_message:
   #   runs-on: ubuntu-latest
   #   steps:
