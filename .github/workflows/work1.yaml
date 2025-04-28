@@ -13,5 +13,14 @@ jobs:
     steps:
       - name: Running actions triggered by ${{github.event_name}}
         run: echo "Running actions triggered by ${{github.event_name}}"
-      - name: Pring flag name
+      - name: Print flag name
         run: echo "Variable flag is ${{env.FLAG}}"
+      - name: Check conditionals
+        run: |
+          if [ ${{ env.FLAG }} ]; then
+            echo "Environment variable is truthy"
+          elif [ ${{ env.FLAG }} == false ]; then
+            echo "Environment variable is falsy"
+          else
+            echo "Environment variable is possibly not defined"
+          fi
