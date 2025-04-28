@@ -35,6 +35,10 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [23.x]
+        # node-version: [18.x, 20.x, 22.x, 23.x]
     needs: test
     steps:
       - name: Build the app
@@ -42,6 +46,10 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [23.x]
+        # node-version: [18.x, 20.x, 22.x, 23.x]
     needs: build
     steps:
       - name: Deploy the app
