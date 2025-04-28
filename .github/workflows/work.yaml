@@ -56,7 +56,7 @@ jobs:
         run: echo "Building and pushing docker container"
 
   upload_artifact:
-    runs-on: macOS
+    runs-on: macos-latest
     strategy:
       matrix:
         node-version: [23.x]
