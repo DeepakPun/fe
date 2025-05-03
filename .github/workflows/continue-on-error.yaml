@@ -3,9 +3,11 @@ on:
   push:
     branches:
       - master
+env:
+  DAY_OF_WEEK: Monday
 jobs:
   get_code:
     runs-on: ubuntu-latest
     steps:
-      - name: Get code
-        run: echo "Code acquired succesfully"
+      - name: Print variable name
+        run: echo "Variable DAY_OF_WEEK is ${{env.DAY_OF_WEEK}}"
