@@ -4,7 +4,7 @@ on:
     branches:
       - master
 env:
-  TEST_SUCCEDED: true
+  TEST_SUCCEDED: false
 jobs:
   get_code:
     runs-on: ubuntu-latest
