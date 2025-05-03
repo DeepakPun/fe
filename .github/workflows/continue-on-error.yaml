@@ -1,0 +1,11 @@
+name: Continue on error
+on:
+  push:
+    branches:
+      - master
+jobs:
+  get_code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        run: echo "Code acquired succesfully"
