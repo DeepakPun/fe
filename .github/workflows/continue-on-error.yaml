@@ -4,10 +4,14 @@ on:
     branches:
       - master
 env:
-  DAY_OF_WEEK: Monday
+  TEST_SUCCEDED: false
 jobs:
   get_code:
     runs-on: ubuntu-latest
     steps:
-      - name: Print variable name
-        run: echo "Variable DAY_OF_WEEK is ${{env.DAY_OF_WEEK}}"
+      - name: Print success message
+        if: ${{env.TEST_SUCCEDED}} == true
+        run: echo "Success message"
+      - name: Print failure message
+        if: ${{env.TEST_SUCCEDED}} == false
+        run: echo "Failure message"
