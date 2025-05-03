@@ -13,7 +13,7 @@ jobs:
         run: |
           if [ ${{ env.TEST_SUCCEDED }} == true ]; then
             echo "Test succeded"
-          elif [ ${{ env.TEST_SUCCEDED }} == 'false' ]; then
+          elif [ ${{ env.TEST_SUCCEDED }} == false ]; then
             echo "Test failed"
           else
             echo "Invalid success/failure code"
