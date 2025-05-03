@@ -9,9 +9,12 @@ jobs:
   get_code:
     runs-on: ubuntu-latest
     steps:
-      - name: Print success message
-        if: ${{env.TEST_SUCCEDED}} == true
-        run: echo "Success message"
-      - name: Print failure message
-        if: ${{env.TEST_SUCCEDED}} == false
-        run: echo "Failure message"
+      - name: Print message
+        run: |
+          if [ ${{ env.TEST_SUCCEDED }} == true ]; then
+            echo "Test succeded"
+          elif [ ${{ env.TEST_SUCCEDED }} == 'false' ]; then
+            echo "Test failed"
+          else
+            echo "Invalid success/failure code"
+          fi
