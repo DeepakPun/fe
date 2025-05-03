@@ -1,10 +1,10 @@
-name: Continue on error
+name: If else condition
 on:
   push:
     branches:
       - master
 env:
-  TEST_SUCCEDED: asdfasdfadfasd
+  TEST_SUCCEDED: true
 jobs:
   get_code:
     runs-on: ubuntu-latest
